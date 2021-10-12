@@ -6,9 +6,11 @@ list([1, 2, 3, 4]).
 
 % TODO:
 % Print out the length of each list using the prolog 'length' predicate
-:- foreach(list(L), list_length(L, N)).
 list_length([],0).
 list_length([_|TAIL],L) :- list_length(TAIL,L1), L is L1 + 1.
+
+:- foreach(list(L), list_length(L, N)).
+
 
 problem1(L) :- (list_length(L,N), format(N); format(N)), nl. 
 :- foreach(list(L), problem1(L)).
