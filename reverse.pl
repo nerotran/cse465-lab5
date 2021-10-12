@@ -11,7 +11,7 @@
 % TODO: Implement my_reverse  (you need to implement helper)
 my_reverse(L1, L2) :- helper(L1, L2, []).
 helper([], L2, L3) :- L2 = L3.
-helper([H|T], L2, L3) :- append(L3, H, Temp), helper(T, L2, Temp).
+helper([H|T], L2, L3) :- helper(T, L2, [H|L3]).
 
 
 
