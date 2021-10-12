@@ -21,10 +21,10 @@ problem2(L) :- (has3(L), format("True"); format("False")), nl.
 	
 % TODO 
 % Append pairs of lists
-append([],L,L).
-append([H|T],L,[H|R]):-append(T,L,R).
+my_append([],L,L).
+my_append([H|T],L,[H|R]) :- my_append(T,L,R).
 
-problem3(L1, L2) :- (append(L1,L2,L3), display(L3)), nl. 
+problem3(L1, L2) :- (my_append(L1,L2,L3), display(L3)), nl. 
 :- foreach((list(L1), list(L2), L1 \= L2, \+ length(L1, 0), \+ length(L2, 0)), 
            problem3(L1, L2)).
 
