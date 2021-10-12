@@ -16,18 +16,17 @@ problem1(L) :- (list_length(L,N), format(N)), nl.
 % Check if each list has a 3 as a member. 
 has3([H|T]) :- H = 3 ; has3(T).
 
-problem2(L) :- (has3(L), format("True~n"); format("False~n")), nl. 
+problem2(L) :- (has3(L), format("True"); format("False")), nl. 
 :-foreach(list(L), problem2(L)). 
 	
 % TODO 
 % Append pairs of lists
+append([],L,L).
+append([H|T],L,[H|R]):-append(T,L,R).
 
-
-problem3(L1, L2) :- format('Do Problem 3 with ~w and ~w', [L1, L2]), nl. 
+problem3(L1, L2) :- (append(L1,L2,L3), format(L3)), nl. 
 :- foreach((list(L1), list(L2), L1 \= L2, \+ length(L1, 0), \+ length(L2, 0)), 
            problem3(L1, L2)).
-
-
 
 % Print every permutation of [1, 2, 3, 4]
 :- foreach(permutation([1, 2, 3, 4], P), (display(P), nl)).
