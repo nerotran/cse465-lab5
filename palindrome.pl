@@ -2,7 +2,7 @@
 % You may use the prolog reverse function
 
 % TODO write is_palindrome/1
-
+palindrome(L):- reverse(L, L).
 
 % TESTS
 :- is_palindrome([a, b, b, a]), format("Passed!"), nl; format('Failed'), nl. 
