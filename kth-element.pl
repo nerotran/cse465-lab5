@@ -2,7 +2,8 @@
 
 
 % TODO: Find the kth element of a list
- 
+kth_element([H|_], 0, H).
+kth_element([_|T], K, E) :- K>0, K1 is K-1, kth_element(T, K1, E).
 
 % TESTS 
 

@@ -2,8 +2,9 @@
 
 
 
- % TODO: Implement my_last/2
-
+% TODO: Implement my_last/2
+my_last([X], X).
+my_last([_|T], X) :- my_last(T, X).
 
 % Tests
 :- my_last([a, b, c, d], X), display(X), nl. 
