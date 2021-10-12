@@ -16,7 +16,7 @@ problem1(L) :- (list_length(L,N), format(N)), nl.
 % Check if each list has a 3 as a member. 
 has3([H|T]) :- H = 3 ; problem1(T).
 
-problem2(L) :- format(has3), nl. 
+problem2(L) :- format(has3(L)), nl. 
 :-foreach(list(L), problem2(L)). 
 	
 % TODO 
